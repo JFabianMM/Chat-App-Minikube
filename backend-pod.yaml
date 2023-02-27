@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: backend
+  template:
+    metadata:
+      labels:
+        role: backend
+    spec:
+      containers:
+      - image: 121503602521.dkr.ecr.us-east-2.amazonaws.com/backend25:1
+        name: backend
+        ports:
+        - containerPort: 4001
